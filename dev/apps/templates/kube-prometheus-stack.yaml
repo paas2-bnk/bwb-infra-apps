@@ -12,7 +12,7 @@ spec:
     helm:
       version: v3
       valueFiles:
-      - values-cicd-prod.yaml
+      - values-bwb-prod.yaml
     path: helm-charts/kube-prometheus-stack
     repoURL: https://github.com/paas2/prometheus 
     targetRevision: HEAD
