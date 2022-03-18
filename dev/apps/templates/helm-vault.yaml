@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-vault
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: vault
+    server: {{ .Values.spec.destination.server }}
+  project: vault
+  
+  source:
+    helm:
+      version: v3
+      valueFiles:
+      - values.yaml      
+      - values-bwb.yaml
+    path: helm-charts/vault
+    repoURL: https://github.com/paas2/vault.git 
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true   
+    automated:  
+      prune: true             
