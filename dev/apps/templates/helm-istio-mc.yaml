@@ -23,4 +23,4 @@ spec:
     path: helm-charts/mc-init  
     repoURL: https://github.com/paas2/istio.git
     targetRevision: HEAD
-  project: default
+  project: istio
