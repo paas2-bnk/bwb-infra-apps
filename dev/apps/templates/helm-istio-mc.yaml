@@ -8,7 +8,6 @@ spec:
     namespace: istio-system
     server: 'https://kubernetes.default.svc'
   source:
-    path: .
     plugin:
       name: argocd-vault-plugin-helm
       env:
