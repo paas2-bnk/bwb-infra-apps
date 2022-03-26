@@ -8,6 +8,10 @@ spec:
     namespace: istio-system
     server: 'https://kubernetes.default.svc'
   source:
+    helm:
+      version: v3
+      valueFiles:
+      - values-bwb-{{ .Values.env }}.yaml  
     plugin:
       name: argocd-vault-plugin-helm
       env:
@@ -18,9 +22,7 @@ spec:
         - name: AVP_VAULT_ADDR
           value: 'http://192.168.99.172:31049'
         - name: AVP_AUTH_TYPE
-          value: k8s            
-        - name: helm_args
-          value: -f values-bwb-dev.yaml           
+          value: k8s                  
     path: helm-charts/mc-init  
     repoURL: https://github.com/paas2/istio.git
     targetRevision: HEAD
