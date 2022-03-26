@@ -28,6 +28,6 @@ spec:
             ca-cert.pem:
               username: <path:kv/data/mysql#user>                        
     path: .  
-    # repoURL: https://github.com/paas2/istio.git
+    repoURL: https://github.com/paas2/istio.git
     targetRevision: HEAD
   project: istio
