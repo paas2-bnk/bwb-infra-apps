@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: helm-istio-mc
+  name: istio-mc
 spec:
   destination:
     name: ''
@@ -18,12 +18,8 @@ spec:
         - name: AVP_VAULT_ADDR
           value: 'http://192.168.99.172:31049'
         - name: AVP_AUTH_TYPE
-          value: k8s
-        - name: HELM_VALUES
-          value: |
-            ca-cert.pem:
-              username: <path:kv/data/mysql#user>                        
-    path: helm-charts/mc-init  
+          value: k8s                      
+    path: mc-init  
     repoURL: https://github.com/paas2/istio.git
     targetRevision: HEAD
   project: istio
