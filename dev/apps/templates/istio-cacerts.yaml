@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: istio-mc
+  name: istio-cacerts
 spec:
   destination:
     name: ''
@@ -9,8 +9,12 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     plugin:
-      name: argocd-vault-plugin                   
-    path: mc-init  
+      name: argocd-vault-plugin-helm  
+      env:
+        - name: HELM_VALUES
+          value: |
+            certsPath: bwb-dev                     
+    path: istio-cacerts  
     repoURL: https://github.com/paas2/istio.git
     targetRevision: HEAD
   project: istio
