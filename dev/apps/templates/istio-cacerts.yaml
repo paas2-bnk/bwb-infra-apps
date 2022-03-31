@@ -8,13 +8,13 @@ spec:
     namespace: istio-system
     server: 'https://kubernetes.default.svc'
   source:
-    path: .  
     plugin:
       name: argocd-vault-plugin-helm  
       env:
         - name: HELM_VALUES
           value: |
             certsPath: bwb-dev                     
-    repoURL: https://github.com/paas2/istio-mc-trust.git
+    path: helm-charts/istio-cacerts
+    repoURL: https://github.com/paas2/istio.git
     targetRevision: HEAD
   project: istio
