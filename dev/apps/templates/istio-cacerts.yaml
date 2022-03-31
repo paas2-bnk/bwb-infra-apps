@@ -14,7 +14,7 @@ spec:
         - name: HELM_VALUES
           value: |
             certsPath: bwb-dev                     
-    path: ./helm-charts/istio-cacerts
+    path: .
     repoURL: https://github.com/paas2/istio.git
     targetRevision: HEAD
   project: istio
