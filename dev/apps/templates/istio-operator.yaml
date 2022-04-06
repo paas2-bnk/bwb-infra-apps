@@ -2,20 +2,17 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "6"
-  name: helm-istio-base
-  namespace: argocd
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
+    argocd.argoproj.io/sync-wave: "3"
+  name: istio-profile
 spec:
   project: istio
-  
+
   source:
     helm:
       version: v3
       valueFiles:
-      - values.yaml
-    path: helm-charts/base
+      - values-{{ .Values.env }}.yaml
+    path: helm-charts/clusters/bwb/operator
     repoURL: https://github.com/paas2/istio.git
     targetRevision: HEAD
     
@@ -27,5 +24,4 @@ spec:
     syncOptions:
     - CreateNamespace=true  
     automated:  
-      prune: true 
-
+      prune: true   

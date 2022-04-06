@@ -3,7 +3,7 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "6"
-  name: helm-istio-discovery
+  name: istio-base
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -15,7 +15,7 @@ spec:
       version: v3
       valueFiles:
       - values.yaml
-    path: helm-charts/istio-discovery
+    path: helm-charts/base
     repoURL: https://github.com/paas2/istio.git
     targetRevision: HEAD
     
