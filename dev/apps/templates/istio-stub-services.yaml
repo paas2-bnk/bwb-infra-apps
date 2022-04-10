@@ -17,7 +17,7 @@ spec:
     targetRevision: HEAD
     
   destination:
-    namespace: istio-system
+    namespace: vault
     server: {{ .Values.spec.destination.server }}
 
   syncPolicy:
